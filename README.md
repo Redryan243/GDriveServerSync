@@ -26,7 +26,7 @@ To use the script, follow these steps:
 
 2. **Set Execute Permissions**: Ensure that the script has execute permissions using the following command:
    ```bash
-   chmod +x script_name.sh
+   chmod +x GDriveServerSync.sh
 
 3. **Set variables**: 3 variables must be set in the text of the script. Open it with a text editor and update them.
 
