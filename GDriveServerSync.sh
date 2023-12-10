@@ -286,10 +286,13 @@ prompt_for_password
 # Main Script Execution Loop
 while true; do
     echo "Select the run mode:"
-    echo "1. Full Restore"
-    echo "2. Custom Options"
-    echo "3. Exit Script"
-    read -p "Enter your choice (1, 2, or 3): " choice
+    echo "1. Full Restore  -First setup is not required"
+    echo "2. First Setup"
+    echo "3. Backup"
+    echo "4. Basic Restore"
+    echo "5. Custom Options"
+    echo "6. Exit Script"
+    read -p "Enter your choice (1, 2, 3, 4, 5, or 6): " choice
 
     case $choice in
         1)  # Full Restore Mode
@@ -298,10 +301,21 @@ while true; do
             run_script init_duplicacy
             run_script restore_latest_revision
             ;;
-        2)  # Custom Options Mode
+        2)  # First Setup
+            run_script install_dependencies
+            run_script authenticate_gdrive
+            run_script init_duplicacy
+            ;;
+        3)  # Backup
+            run_script backup
+            ;;
+        4)  # Overwrite Restore
+            run_script restore_latest_revision
+            ;;
+        5)  # Custom Options Mode
             enter_custom_options_mode
             ;;
-        3)  # Exit Script
+        6)  # Exit Script
             echo "Exiting script."
             exit 0
             ;;
